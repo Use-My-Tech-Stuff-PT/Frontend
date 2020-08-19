@@ -1,0 +1,65 @@
+body {
+  height: 100%;
+  /* background-color: grey; */
+}
+
+.navBar{
+  display: flex;
+  justify-content: space-around;
+  height: 8vh;
+  padding: 1vh;
+  margin: 1vh;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.navTitle{
+  width: 50%;
+  /* border: solid green; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 6vh;
+}
+.navLinks{
+  width: 50%;
+  /* border: solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 3vh;
+}
+.linksContainer{
+  width:50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* //  React Logo loading animation   /// */
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
