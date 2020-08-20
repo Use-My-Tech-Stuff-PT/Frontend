@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-
+// props???
 export default function Login () {
+    const [user, setUser] = useState([
+        {
+            userEmail: "",
+            userPassword: ""
+        }
+    ]);
+
+    const submitLoginForm = (event) => {
+        event.preventDefault();
+        // Post req?/Server verification?/Lost...?
+    }
     return(
         <div>
             <form className="form-signin">
