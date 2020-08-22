@@ -19,7 +19,7 @@ export default function Login (props) {
         event.preventDefault();
         // Post req?/Server verification?/Lost...?
         axios
-        .post("https://use-my-tech-stuff-api.herokuapp.com/api/users/register", formState)
+        .post("https://use-my-tech-stuff-api.herokuapp.com/login", formState)
         .then(response => {
             alert('Log in successful', response)
         })
@@ -37,7 +37,7 @@ export default function Login (props) {
     }
     return(
         <div>
-            <Form className="form-signin">
+            <Form className="form-signin" onSubmit={submitLoginForm}>
                 <img class="mb-1" src="https://raw.githubusercontent.com/Use-My-Tech-Stuff-PT/Marketing-Page/orlando-rivera-jr/img/Use%20My%20Tech%20Horizontal%20Logo_Teal%20Icon.png" alt="" width="auto" height="72" />
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <Label for="inputusername" class="sr-only">Username: </Label>
