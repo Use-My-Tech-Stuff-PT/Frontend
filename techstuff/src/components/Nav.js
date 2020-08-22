@@ -11,7 +11,7 @@ export default function Nav() {
         <Router>
             <div className="navBar">
                 <div className="navTitle">
-                    <h1>Use My tech stuff</h1>
+                <img class="mb-1" src="https://raw.githubusercontent.com/Use-My-Tech-Stuff-PT/Marketing-Page/orlando-rivera-jr/img/Use%20My%20Tech%20Horizontal%20Logo_Teal%20Icon.png" alt="" width="auto" height="72" />
                 </div>
                 <div className="navLinks">
                     <div className="linksContainer">
@@ -20,6 +20,7 @@ export default function Nav() {
                         <Link to='/renters'>Users</Link>
                     </div>
                 </div>
+                
             </div>
             <Switch>
                 {/* <PrivateRoute exact path='/renters' component={Renters} /> */}

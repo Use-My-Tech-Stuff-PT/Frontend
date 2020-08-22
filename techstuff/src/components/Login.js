@@ -19,9 +19,9 @@ export default function Login (props) {
         event.preventDefault();
         // Post req?/Server verification?/Lost...?
         axios
-        .post("https://use-my-tech-stuff-api.herokuapp.com/login", formState)
+        .get("https://use-my-tech-stuff-api.herokuapp.com/login")
         .then(response => {
-            alert('Log in successful', response)
+            console.log('Log in successful', response)
         })
         .catch("error logging in")
     }
@@ -36,10 +36,11 @@ export default function Login (props) {
         setFormState(newSignIn)
     }
     return(
-        <div>
-            <Form className="form-signin" onSubmit={submitLoginForm}>
-                <img class="mb-1" src="https://raw.githubusercontent.com/Use-My-Tech-Stuff-PT/Marketing-Page/orlando-rivera-jr/img/Use%20My%20Tech%20Horizontal%20Logo_Teal%20Icon.png" alt="" width="auto" height="72" />
-                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div className="login-card">
+            <Form class="form-signin" onSubmit={submitLoginForm}>
+                <FormText class="h1 mb-1 font-weight-normal">Please sign in!</FormText>
+                <br />
+                <br />
                 <Label for="inputusername" class="sr-only">Username: </Label>
                 <Input 
                     type="username" 
@@ -71,6 +72,7 @@ export default function Login (props) {
                     </Label>
                 </div>
                 <Button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</Button>
+                <br />
                 <FormText class="mt-5 mb-3 text-muted">©2020</FormText>
             </Form>
         </div>
