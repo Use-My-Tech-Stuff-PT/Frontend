@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import axios from "axios";
 
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -11,12 +12,15 @@ export default function SignUp() {
   const [post, setPost] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(newUser);
-    setNewUser({
-      username: "",
-      email: "",
-      password: "",
-      selection: "",
+    axios.post("https://reqres.in/api/users", newUser).then((res) => {
+      setPost(res.data);
+      console.log(res.data);
+      setNewUser({
+        username: "",
+        email: "",
+        password: "",
+        selection: "",
+      });
     });
   };
   const handleChange = (event) => {
@@ -65,6 +69,7 @@ export default function SignUp() {
         <FormGroup>
           <Label for="idSelection">Renter or Owner</Label>
           <Input
+            className="w-25"
             type="select"
             name="selection"
             id="idSelection"
