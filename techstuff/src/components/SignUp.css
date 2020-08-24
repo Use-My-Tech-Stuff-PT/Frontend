@@ -5,3 +5,7 @@
 h2 {
   text-align: center;
 }
+p {
+  color: red;
+  font-size: small;
+}
