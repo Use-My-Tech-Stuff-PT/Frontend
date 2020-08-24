@@ -42,6 +42,15 @@ h1{
   justify-content: center;
 }
 
+.login-card {
+  height:auto;
+  width:20vw;
+  border: .3rem double rgb(90, 167, 190);
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  margin: 5rem 20vw;
+  padding:1rem;
+  display:flex;
+}
 
 /* //  React Logo loading animation   /// */
 /* .App-logo {
