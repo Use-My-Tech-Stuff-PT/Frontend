@@ -8,24 +8,25 @@ import {
   FormText,
   FormFeedback,
 } from "reactstrap";
-import axios from "axios";
+// import axios from "axios";
 import * as Yup from "yup";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-export default function SignUp() {
+export default function SignUp(props) {
   // Use State to create new users
   const [newUser, setNewUser] = useState({
     username: "",
-    email: "",
+    // email: "",
     password: "",
-    selection: "",
+    role: "",
   });
 
   // Error logging
   const [errors, setErrors] = useState({
     username: "",
-    email: "",
+    // email: "",
     password: "",
-    selection: "",
+    role: "",
   });
 
   // Use state to hold post data
@@ -50,19 +51,37 @@ export default function SignUp() {
   };
 
   // Makes post request and users data into post state then clears setnew user for testing
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   axiosWithAuth()
+  //   .post("/api/users/register", newUser)
+  //   .then((res) => {
+  //     setPost(res.data);
+  //     console.log(res.data);
+  //     setNewUser({
+  //       username: "",
+  //       // email: "",
+  //       password: "",
+  //       role: "",
+  //     });
+  //     props.history.push('/renters')
+  //   });
+  // };
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("https://reqres.in/api/users", newUser).then((res) => {
-      setPost(res.data);
-      console.log(res.data);
-      setNewUser({
-        username: "",
-        email: "",
-        password: "",
-        selection: "",
-      });
-    });
+    axiosWithAuth()
+      .post("/api/users/register", newUser)
+      .then(res => {
+        console.log("SignUp.js: formSubmit: .post", res.data);
+        localStorage.setItem('token', res.data.token)
+        props.history.push('/renters')
+      })
   };
+
+
+
 
   // Handles changes in form and updates newUser state
   const handleChange = (event) => {
@@ -77,13 +96,13 @@ export default function SignUp() {
   // Shaping object data with correct requirements for validation
   const formSchema = Yup.object().shape({
     username: Yup.string().required("Must include a username"),
-    email: Yup.string()
-      .email("Must be a valid email address.")
-      .required("Must include email address."),
+    // email: Yup.string()
+    //   .email("Must be a valid email address.")
+    //   .required("Must include email address."),
     password: Yup.string()
       .min(6, "Passwords must be at least 6 characters long.")
       .required("Password is Required"),
-    selection: Yup.string().required("Please make your selection"),
+    role: Yup.string().required("Please make your selection"),
   });
 
   // Updates the button to enabled if the form is valid
@@ -111,7 +130,7 @@ export default function SignUp() {
             <p className="error">{errors.username}</p>
           ) : null}
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label for="userEmail">Email</Label>
           <Input
             type="email"
@@ -124,7 +143,7 @@ export default function SignUp() {
           {errors.email.length > 0 ? (
             <p className="error">{errors.email}</p>
           ) : null}
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup>
           <Label for="userPassword">Password</Label>
           <Input
@@ -140,21 +159,21 @@ export default function SignUp() {
           ) : null}
         </FormGroup>
         <FormGroup>
-          <Label for="idSelection">Renter or Owner</Label>
+          <Label for="idRole">Renter or Owner</Label>
           <Input
             className="w-25"
             type="select"
-            name="selection"
-            id="idSelection"
-            value={newUser.selection}
+            name="role"
+            id="idRole"
+            value={newUser.role}
             onChange={(event) => handleChange(event)}
           >
             <option disabled></option>
             <option value="Renter">Renter</option>
             <option value="Owner">Owner</option>
           </Input>
-          {errors.selection.length > 0 ? (
-            <p className="error">{errors.selection}</p>
+          {errors.role.length > 0 ? (
+            <p className="error">{errors.role}</p>
           ) : null}
         </FormGroup>
         <Button color="primary" disabled={buttonDisabled}>
