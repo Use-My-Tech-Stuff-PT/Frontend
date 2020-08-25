@@ -15,11 +15,13 @@ export default function Login (props) {
         password: ""
     });
 
+    // yup? validation?
+
     const submitLoginForm = (event) => {
         event.preventDefault();
         // Post req?/Server verification?/Lost...?
         axios
-        .get("https://use-my-tech-stuff-api.herokuapp.com/login")
+        .post("https://use-my-tech-stuff-api.herokuapp.com/login")
         .then(response => {
             console.log('Log in successful', response)
         })
@@ -37,33 +39,32 @@ export default function Login (props) {
     }
     return(
         <div className="login-card">
-            <Form class="form-signin" onSubmit={submitLoginForm}>
-                <FormText class="h1 mb-1 font-weight-normal">Please sign in!</FormText>
+            <Form onSubmit={submitLoginForm}>
+                <FormText>Please sign in!</FormText>
                 <br />
                 <br />
-                <Label for="inputusername" class="sr-only">Username: </Label>
+                <Label for="inputusername" >Username: </Label>
                 <Input 
                     type="username" 
                     id="inputusername" 
                     name="username"
-                    class="form-control" 
                     placeholder="username" 
                     required="" 
                     autofocus=""
                     onChange={inputChange}
                     value={formState.username} />
                 <br />
-                <Label for="inputPassword" class="sr-only">Password</Label>
+                <br />
+                <Label for="inputPassword">Password: </Label>
                 <Input 
                     type="password" 
                     id="inputPassword" 
                     name="password"
-                    class="form-control" 
                     placeholder="Password" 
                     required=""
                     onChange={inputChange}
                     value={formState.password}/>
-                <div class="checkbox mb-3">
+                <div>
                     <Label>
                         <Input 
                         type="checkbox" 
@@ -71,9 +72,10 @@ export default function Login (props) {
                         onChange={inputChange}/> Remember me
                     </Label>
                 </div>
-                <Button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</Button>
                 <br />
-                <FormText class="mt-5 mb-3 text-muted">©2020</FormText>
+                <Button ype="submit">Sign in</Button>
+                <br />
+                <FormText >©2020</FormText>
             </Form>
         </div>
     )
