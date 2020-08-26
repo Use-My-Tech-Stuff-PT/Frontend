@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 export default function Login (props) {
     const [user, setUser] = useState([]);
@@ -15,17 +16,31 @@ export default function Login (props) {
         password: ""
     });
 
-    // yup? validation?
+    // const submitLoginForm = (event) => {
+    //     event.preventDefault();
+    //     // Post req?/Server verification?/Lost...?
+    //     axios
+    //     .get("https://use-my-tech-stuff-api.herokuapp.com/login")
+    //     .then(response => {
+    //         console.log('Log in successful', response)
+    //     })
+    //     .catch("error logging in")
+    // }
 
     const submitLoginForm = (event) => {
         event.preventDefault();
         // Post req?/Server verification?/Lost...?
-        axios
-        .post("https://use-my-tech-stuff-api.herokuapp.com/login")
+        axiosWithAuth()
+        .post("/api/users/login", formState)
         .then(response => {
-            console.log('Log in successful', response)
+            console.log('Log in successful', response);
+            localStorage.setItem("token", response.data.payload);
+            localStorage.setItem('id', response.data.id)
+            props.history.push('/renters')
         })
-        .catch("error logging in")
+        .catch(err=>{
+            console.log('Loading.js=>handleLogin=>err', err)
+        })
     }
 
     const inputChange = e => {

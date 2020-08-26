@@ -6,7 +6,6 @@ function App() {
   return (
     <div>
       <Nav />
-      <div>HOME PAGE</div>
     </div>
   );
 }
