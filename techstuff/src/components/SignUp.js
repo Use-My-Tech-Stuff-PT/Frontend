@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  FormFeedback,
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 // import axios from "axios";
 import * as Yup from "yup";
 import axiosWithAuth from "../utils/axiosWithAuth";
@@ -16,7 +8,7 @@ export default function SignUp(props) {
   // Use State to create new users
   const [newUser, setNewUser] = useState({
     username: "",
-    // email: "",
+    zipcode: "",
     password: "",
     role: "",
   });
@@ -24,7 +16,7 @@ export default function SignUp(props) {
   // Error logging
   const [errors, setErrors] = useState({
     username: "",
-    // email: "",
+    zipcode: "",
     password: "",
     role: "",
   });
@@ -50,24 +42,6 @@ export default function SignUp(props) {
       });
   };
 
-  // Makes post request and users data into post state then clears setnew user for testing
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   axiosWithAuth()
-  //   .post("/api/users/register", newUser)
-  //   .then((res) => {
-  //     setPost(res.data);
-  //     console.log(res.data);
-  //     setNewUser({
-  //       username: "",
-  //       // email: "",
-  //       password: "",
-  //       role: "",
-  //     });
-  //     props.history.push('/renters')
-  //   });
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axiosWithAuth()
@@ -92,9 +66,7 @@ export default function SignUp(props) {
   // Shaping object data with correct requirements for validation
   const formSchema = Yup.object().shape({
     username: Yup.string().required("Must include a username"),
-    // email: Yup.string()
-    //   .email("Must be a valid email address.")
-    //   .required("Must include email address."),
+    zipcode: Yup.string(),
     password: Yup.string()
       .min(6, "Passwords must be at least 6 characters long.")
       .required("Password is Required"),
@@ -126,20 +98,20 @@ export default function SignUp(props) {
             <p className="error">{errors.username}</p>
           ) : null}
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="userEmail">Email</Label>
+        <FormGroup>
+          <Label for="userZipcode">Zipcode (optional)</Label>
           <Input
-            type="email"
-            name="email"
-            id="userEmail"
-            placeholder="Email"
-            value={newUser.email}
+            type="number"
+            name="zipcode"
+            id="userzipcode"
+            placeholder="Zipcode"
+            value={newUser.zipcode}
             onChange={(event) => handleChange(event)}
           />
-          {errors.email.length > 0 ? (
-            <p className="error">{errors.email}</p>
+          {errors.zipcode.length > 0 ? (
+            <p className="error">{errors.zipcode}</p>
           ) : null}
-        </FormGroup> */}
+        </FormGroup>
         <FormGroup>
           <Label for="userPassword">Password</Label>
           <Input
