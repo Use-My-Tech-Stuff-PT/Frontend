@@ -1,0 +1,4 @@
+.posts-grid {
+  display: flex;
+  flex-flow: row nowrap;
+}

@@ -68,20 +68,16 @@ export default function SignUp(props) {
   //   });
   // };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axiosWithAuth()
       .post("/api/users/register", newUser)
-      .then(res => {
+      .then((res) => {
         console.log("SignUp.js: formSubmit: .post", res.data);
-        localStorage.setItem('token', res.data.token)
-        props.history.push('/renters')
-      })
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/renters");
+      });
   };
-
-
-
 
   // Handles changes in form and updates newUser state
   const handleChange = (event) => {
