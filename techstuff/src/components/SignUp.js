@@ -21,9 +21,6 @@ export default function SignUp(props) {
     role: "",
   });
 
-  // Use state to hold post data
-  const [post, setPost] = useState([]);
-
   // Use state to disable button if form is not valid
   const [buttonDisabled, setButtonDisabled] = useState(false);
 

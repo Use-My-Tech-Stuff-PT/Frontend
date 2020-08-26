@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import missingImg from "../imgs/missingImg.png";
 import {
   Card,
@@ -10,8 +10,6 @@ import {
   Button,
   Spinner,
 } from "reactstrap";
-import axiosWithAuth from "../utils/axiosWithAuth";
-
 export default function PostCard(props) {
   const { item } = props;
 
