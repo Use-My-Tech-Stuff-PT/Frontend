@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -53,44 +53,48 @@ export default function Login (props) {
         setFormState(newSignIn)
     }
     return(
-        <div className="login-card">
+        <div id="formContainer">
+            <h2>Please sign in!</h2>
             <Form onSubmit={submitLoginForm}>
-                <FormText>Please sign in!</FormText>
-                <br />
-                <br />
-                <Label for="inputusername" >Username: </Label>
-                <Input 
-                    type="username" 
-                    id="inputusername" 
-                    name="username"
-                    placeholder="username" 
-                    required="" 
-                    autofocus=""
-                    onChange={inputChange}
-                    value={formState.username} />
-                <br />
-                <br />
-                <Label for="inputPassword">Password: </Label>
-                <Input 
-                    type="password" 
-                    id="inputPassword" 
-                    name="password"
-                    placeholder="Password" 
-                    required=""
-                    onChange={inputChange}
-                    value={formState.password}/>
-                <div>
+                
+                
+                <FormGroup>
+                    <Label for="inputusername" >Username: </Label>
+                    <Input 
+                        type="username" 
+                        id="inputusername" 
+                        name="username"
+                        placeholder="username" 
+                        required="" 
+                        autofocus=""
+                        onChange={inputChange}
+                        value={formState.username} />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="inputPassword">Password: </Label>
+                    <Input 
+                        type="password" 
+                        id="inputPassword" 
+                        name="password"
+                        placeholder="Password" 
+                        required=""
+                        onChange={inputChange}
+                        value={formState.password}/>
+
                     <Label>
                         <Input 
                         type="checkbox" 
                         value="remember-me"
                         onChange={inputChange}/> Remember me
                     </Label>
-                </div>
-                <br />
-                <Button ype="submit">Sign in</Button>
-                <br />
-                <FormText >©2020</FormText>
+                </FormGroup>
+                
+                    
+                
+                
+                <Button color="primary" type="submit">Sign in</Button>
+                
+                <FormText color="muted" >©2020</FormText>
             </Form>
         </div>
     )

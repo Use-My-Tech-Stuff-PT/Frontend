@@ -42,7 +42,7 @@ h1{
   justify-content: center;
 }
 
-.login-card {
+/* .login-card {
   height:auto;
   width:20vw;
   border: .3rem double rgb(90, 167, 190);
@@ -50,7 +50,7 @@ h1{
   margin: 5rem 20vw;
   padding:1rem;
   display:flex;
-}
+} */
 
 /* //  React Logo loading animation   /// */
 /* .App-logo {
