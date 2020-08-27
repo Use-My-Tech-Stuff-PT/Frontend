@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, FormText, CustomInput } from "reactstrap";
 import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -82,10 +82,11 @@ export default function Login (props) {
                         value={formState.password}/>
 
                     <Label>
-                        <Input 
+                        <CustomInput 
                         type="checkbox" 
                         value="remember-me"
-                        onChange={inputChange}/> Remember me
+                        onChange={inputChange}
+                        /> Remember me
                     </Label>
                 </FormGroup>
                 
