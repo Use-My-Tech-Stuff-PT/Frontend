@@ -34,7 +34,7 @@ export default function Login (props) {
         .post("/api/users/login", formState)
         .then(response => {
             console.log('Log in successful', response);
-            localStorage.setItem("token", response.data.payload);
+            localStorage.setItem("token", response.data.token);
             localStorage.setItem('id', response.data.id)
             props.history.push('/renters')
         })

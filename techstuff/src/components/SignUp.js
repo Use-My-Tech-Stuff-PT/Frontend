@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-// import axios from "axios";
 import * as Yup from "yup";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from 'axios';
 
 export default function SignUp(props) {
   // Use State to create new users
@@ -41,11 +40,10 @@ export default function SignUp(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .post("/api/users/register", newUser)
+    axios
+      .post("https://use-my-tech-stuff-api.herokuapp.com/api/users/register", newUser)
       .then((res) => {
-        console.log("SignUp.js: formSubmit: .post", res.data);
-        localStorage.setItem("token", res.data.token);
+        console.log("SignUp.js: formSubmit: .post", res);
         props.history.push("/renters");
       });
   };

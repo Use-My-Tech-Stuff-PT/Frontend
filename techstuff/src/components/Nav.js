@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "../App.css";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import Renters from "../renters/Renters";
+import Renters from "./Renters";
 import PrivateRoute from "./PrivateRoute";
 import PostForm from "./PostForm.js";
+import PostsGrid from "./PostsGrid.js";
+
 export default function Nav() {
   return (
     <Router>
@@ -21,21 +23,23 @@ export default function Nav() {
         </div>
         <div className="navLinks">
           <div className="linksContainer">
+            <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-            <Link to="/create_post">Post</Link> {/*Testing Post Form*/}
+            {/* <Link to="/create_post">Post</Link> Testing Post Form */}
             {/* <Link to='/renters'>Users</Link> */}
           </div>
         </div>
       </div>
       <Switch>
         <PrivateRoute exact path="/renters" component={Renters} />
+        <Route exact path="/" render={(props) => <PostsGrid {...props} />} />
         <Route path="/login" render={(props) => <Login {...props} />} />
         <Route path="/signup" render={(props) => <SignUp {...props} />} />
-        <Route
+        {/* <Route
           path="/create_post"
           render={(props) => <PostForm {...props} />}
-        />
+        /> */}
       </Switch>
     </Router>
   );

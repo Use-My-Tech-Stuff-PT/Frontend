@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Spinner } from "reactstrap";
 import PostCard from "./PostCard.js";
@@ -8,8 +9,8 @@ export default function PostsGrid() {
 
   useEffect(() => {
     const fetchItem = () => {
-      axiosWithAuth()
-        .get("/api/" + query)
+      axios
+        .get("https://use-my-tech-stuff-api.herokuapp.com/api/" + query)
         .then((res) => {
           console.log(res.data);
           setItems(res.data);
