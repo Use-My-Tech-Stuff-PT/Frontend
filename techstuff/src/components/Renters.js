@@ -1,11 +1,11 @@
-import React from 'react';
-import PostForm from './PostForm';
+import React from "react";
+import PostForm from "./PostForm";
 
-export default function Renters () {
-    return(
-        <div>
-            Renters
-            <PostForm />
-        </div>
-    )
+export default function Renters() {
+  return (
+    <div>
+      Renters
+      <PostForm />
+    </div>
+  );
 }

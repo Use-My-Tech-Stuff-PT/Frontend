@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "../App.css";
 import Login from "./Login";
@@ -7,7 +7,7 @@ import Renters from "./Renters";
 import PrivateRoute from "./PrivateRoute";
 import PostForm from "./PostForm.js";
 import PostsGrid from "./PostsGrid.js";
-
+import React, { useState } from "react";
 export default function Nav() {
   return (
     <Router>
