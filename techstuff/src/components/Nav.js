@@ -6,8 +6,7 @@ import SignUp from "./SignUp";
 import Renters from "./Renters";
 import PrivateRoute from "./PrivateRoute";
 import PostForm from "./PostForm.js";
-import PostsGrid from "./PostsGrid.js";
-import React, { useState } from "react";
+import HomeGrid from "./HomeGrid.js";
 export default function Nav() {
   return (
     <Router>
@@ -33,7 +32,7 @@ export default function Nav() {
       </div>
       <Switch>
         <PrivateRoute exact path="/renters" component={Renters} />
-        <Route exact path="/" render={(props) => <PostsGrid {...props} />} />
+        <Route exact path="/" render={(props) => <HomeGrid {...props} />} />
         <Route path="/login" render={(props) => <Login {...props} />} />
         <Route path="/signup" render={(props) => <SignUp {...props} />} />
         {/* <Route

@@ -13,5 +13,7 @@
 }
 .card {
   width: 30vw;
-  margin: 5%;
+}
+.postCard {
+  margin: 1%;
 }

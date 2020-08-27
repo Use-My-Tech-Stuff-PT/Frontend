@@ -26,7 +26,11 @@ export default function PostCard(props) {
         <CardImg
           top
           width="100%"
-          src={item.img_src === null ? missingImg : item.img_src}
+          src={
+            item.img_src === null || item.img_src === ""
+              ? missingImg
+              : item.img_src
+          }
           alt={item.item_name}
         />
         <CardBody>

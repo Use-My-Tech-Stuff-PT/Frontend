@@ -6,8 +6,6 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 export default function PostForm(props) {
   const id = localStorage.getItem("id");
-  console.log(id);
-
   // Use State to create a new post
   const [newPost, setNewPost] = useState({
     item_name: "",
@@ -48,7 +46,6 @@ export default function PostForm(props) {
       .post(`/api/users/${id}/items`, newPost)
       .then((res) => {
         console.log("SignUp.js: formSubmit: .post", res.data);
-        localStorage.setItem("token", res.data.token);
         props.history.push("/renters");
       });
   };
