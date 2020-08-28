@@ -13,7 +13,7 @@ export default function Nav() {
       <div className="navBar">
         <div className="navTitle">
           <img
-            class="mb-1"
+            className="mb-1"
             src="https://raw.githubusercontent.com/Use-My-Tech-Stuff-PT/Marketing-Page/orlando-rivera-jr/img/Use%20My%20Tech%20Horizontal%20Logo_Teal%20Icon.png"
             alt=""
             width="auto"

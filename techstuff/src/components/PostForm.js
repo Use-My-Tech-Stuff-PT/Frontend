@@ -41,7 +41,8 @@ export default function PostForm(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(newPost);
+    // Adds $ sign to price
+    newPost.price = "$".concat(newPost.price);
     axiosWithAuth()
       .post(`/api/users/${id}/items`, newPost)
       .then((res) => {
