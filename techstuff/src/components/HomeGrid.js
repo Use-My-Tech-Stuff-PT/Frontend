@@ -22,7 +22,12 @@ export default function PostsGrid() {
     fetchItem();
   }, [query]);
   if (items.length === 0) {
-    return <Spinner style={{ width: "6rem", height: "6rem" }} />;
+    return (
+      <Spinner
+        className="center-spin"
+        style={{ width: "12rem", height: "12rem" }}
+      />
+    );
   }
   return (
     <div className="posts-grid">

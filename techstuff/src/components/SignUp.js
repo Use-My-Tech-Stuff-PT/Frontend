@@ -99,7 +99,7 @@ export default function SignUp(props) {
           ) : null}
         </FormGroup>
         <FormGroup>
-          <Label for="userZipcode">Zipcode (optional)</Label>
+          <Label for="userZipcode">Zipcode</Label>
           <Input
             type="number"
             name="zipcode"
@@ -144,9 +144,7 @@ export default function SignUp(props) {
             <p className="error">{errors.role}</p>
           ) : null}
         </FormGroup>
-        <Button color="primary" disabled={buttonDisabled}>
-          Submit
-        </Button>
+        <Button disabled={buttonDisabled}>Submit</Button>
       </Form>
     </div>
   );

@@ -1,0 +1,42 @@
+@import "./variables.less";
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  height: 8vh;
+  padding: 1vh;
+  margin: 1vh;
+  background-image: linear-gradient(120deg, #223f59 0%, #4ecbd9 100%);
+}
+
+.navTitle {
+  width: 50%;
+  /* border: solid green; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 6vh;
+}
+.navLinks {
+  width: 50%;
+  /* border: solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 3vh;
+}
+.linksContainer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.linksContainer a {
+  text-decoration: none;
+  color: @Text-Colors;
+}
+h1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

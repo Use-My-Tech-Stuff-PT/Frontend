@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import missingImg from "../imgs/missingImg.png";
 import {
   Card,
@@ -8,17 +8,20 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
-  Spinner,
+  Alert,
 } from "reactstrap";
 export default function PostCard(props) {
   const { item } = props;
+  const [visible, setVisible] = useState(false);
 
-  if (Object.keys(item).length === 0) {
-    return <Spinner style={{ width: "6rem", height: "6rem" }} />;
-  }
+  const onDismiss = () => setVisible(false);
+
   return (
     <div className="postCard">
-      <Card body inverse color="primary">
+      <Alert color="success" isOpen={visible} toggle={onDismiss}>
+        Rent Request Sent!
+      </Alert>
+      <Card body>
         <div className="title-wrapper">
           <CardTitle>{item.item_name}</CardTitle>
           <CardTitle>{item.price}</CardTitle>
@@ -36,9 +39,16 @@ export default function PostCard(props) {
         <CardBody>
           <CardSubtitle>Description</CardSubtitle>
           <CardText>
-            {item.description} <h5>posted by: {item.username}</h5>
+            {item.description} <span>posted by: {item.username}</span>
           </CardText>
-          <Button color="success">Rent</Button>
+          <Button
+            onClick={() => {
+              console.log("clicked");
+              setVisible(true);
+            }}
+          >
+            Rent
+          </Button>
         </CardBody>
       </Card>
     </div>
