@@ -5,6 +5,12 @@
   .card {
     width: 30vw;
     background-color: @Secondary-Midtone-Color;
+    @media @medium {
+      width: 45vw;
+    }
+    @media @small {
+      width: 100vw;
+    }
     .title-wrapper {
       display: flex;
       flex-direction: row;

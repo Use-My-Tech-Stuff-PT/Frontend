@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { Spinner } from "reactstrap";
 import PostCard from "./PostCard.js";
+import LoadingAnimation from "./LoadingAnimation.js";
 export default function PostsGrid() {
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState("items");
@@ -22,12 +22,7 @@ export default function PostsGrid() {
     fetchItem();
   }, [query]);
   if (items.length === 0) {
-    return (
-      <Spinner
-        className="center-spin"
-        style={{ width: "12rem", height: "12rem" }}
-      />
-    );
+    return <LoadingAnimation />;
   }
   return (
     <div className="posts-grid">

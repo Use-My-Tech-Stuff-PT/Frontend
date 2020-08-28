@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { Spinner } from "reactstrap";
+import LoadingAnimation from "./LoadingAnimation.js";
 import PostCard from "./PostCard.js";
 export default function OwnerGrid() {
   const [items, setItems] = useState([]);
@@ -23,12 +23,7 @@ export default function OwnerGrid() {
     fetchItem();
   }, [query]);
   if (items.length === 0) {
-    return (
-      <Spinner
-        className="center-spin"
-        style={{ width: "12rem", height: "12rem" }}
-      />
-    );
+    return <LoadingAnimation />;
   }
   return (
     <div className="posts-grid">
