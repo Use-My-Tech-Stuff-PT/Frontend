@@ -47,9 +47,8 @@ export default function SignUp(props) {
       )
       .then((res) => {
         console.log("SignUp.js: formSubmit: .post", res);
-
-        props.history.push("/renters");
         localStorage.setItem("id", res.data.id);
+        props.history.push("/login");
       });
   };
 

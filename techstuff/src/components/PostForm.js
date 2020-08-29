@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import * as Yup from "yup";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-export default function PostForm(props) {
+export default function PostForm() {
   const id = localStorage.getItem("id");
   // Use State to create a new post
   const [newPost, setNewPost] = useState({
@@ -41,12 +41,17 @@ export default function PostForm(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     console.log(newPost);
     axiosWithAuth()
       .post(`/api/users/${id}/items`, newPost)
       .then((res) => {
         console.log("SignUp.js: formSubmit: .post", res.data);
-        props.history.push("/renters");
+        window.location.reload(false);
+      })
+      .catch(err => {
+        console.log(err);
+        window.location.reload(false);
       });
   };
 
