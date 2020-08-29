@@ -139,9 +139,7 @@ export default function PostForm() {
             <p className="error">{errors.img_src}</p>
           ) : null}
         </FormGroup>
-        <Button color="primary" disabled={buttonDisabled}>
-          Submit
-        </Button>
+        <Button disabled={buttonDisabled}>Submit</Button>
       </Form>
     </div>
   );

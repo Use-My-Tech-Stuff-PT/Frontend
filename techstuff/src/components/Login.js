@@ -100,9 +100,7 @@ export default function Login(props) {
           </Label>
         </FormGroup>
 
-        <Button color="primary" type="submit">
-          Sign in
-        </Button>
+        <Button type="submit">Sign in</Button>
 
         <FormText color="muted">©2020</FormText>
       </Form>

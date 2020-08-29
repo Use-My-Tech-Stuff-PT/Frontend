@@ -1,0 +1,91 @@
+.postCard {
+  margin: 1%;
+  color: white;
+}
+.postCard .card {
+  width: 30vw;
+  background-color: #223f59;
+}
+.postCard .card .title-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.postCard .card .card-body p span {
+  color: lightgray;
+  float: right;
+  font-size: 0.7rem;
+}
+/*Theme Colors*/
+.posts-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+#formContainer {
+  width: 50vw;
+  margin: auto;
+}
+#formContainer h2 {
+  text-align: center;
+}
+#formContainer p {
+  color: red;
+  font-size: small;
+}
+.center-spin {
+  margin: auto;
+  color: #4ecbd9;
+  width: 50%;
+}
+.btn-secondary {
+  background-color: #4ecbd9d6;
+  border-color: #4ecbd9d6;
+  font-size: 1.5rem;
+}
+.btn-secondary:hover {
+  background-color: #f1a032;
+  border-color: #f1a032;
+}
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  height: 8vh;
+  padding: 1vh;
+  margin: 1vh;
+  background-image: linear-gradient(120deg, #223f59 0%, #4ecbd9 100%);
+}
+.navTitle {
+  width: 50%;
+  /* border: solid green; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 6vh;
+}
+.navLinks {
+  width: 50%;
+  /* border: solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 3vh;
+}
+.linksContainer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.linksContainer a {
+  text-decoration: none;
+  color: #333333;
+}
+h1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body {
+  background-color: #61748c;
+}
