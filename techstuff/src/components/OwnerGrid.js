@@ -28,8 +28,6 @@ export default function OwnerGrid() {
   return (
     <div className="posts-grid">
       {items.map((item) => {
-        console.log(id);
-        console.log(item.user_id);
         if (item.user_id == id) {
           console.log("match found");
           return <PostCard item={item} key={item.id} />;

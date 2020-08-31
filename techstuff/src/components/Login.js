@@ -73,7 +73,6 @@ export default function Login(props) {
             name="username"
             placeholder="username"
             required=""
-            autofocus=""
             onChange={inputChange}
             value={formState.username}
           />
